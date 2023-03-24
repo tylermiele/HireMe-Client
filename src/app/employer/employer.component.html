@@ -1,9 +1,62 @@
-<p>Hire Me!</p>
-<section class="col-lg-6">
-    <h2>Employers</h2>
-    <ul>
-        <li *ngFor="let employer of employers">
-            {{employer.name}}
-        </li>
-    </ul>
-</section>
+<div class="container">
+    <section>
+        <h1>Employer List</h1>
+        <table class="table table-striped table-hover">
+            <thead>
+                <th>Name</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Number of Employees</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employer of employers">
+                    <td>{{employer.name}}</td>
+                    <td>{{employer.city}}</td>
+                    <td>
+                        <a href="mailto:{{employer.contactEmail}}">{{employer.contactEmail}}</a>
+                    </td>
+                    <td>{{employer.employees}}</td>
+                    <td class="action-btns">
+                        <a href="/employers/details/{{employer._id}}" title="View Comments"><i
+                                class="fa-solid fa-circle-info"></i></a>
+                        <a href="/employers/edit/{{employer._id}}" title="Edit"><i
+                                class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="/employers/delete/{{employer._id}}" title="Delete" onclick="return confirmDelete();"><i
+                                class="fa-solid fa-circle-xmark"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h2>Add / Edit Employer</h2>
+        <fieldset>
+            <label class="form-label" for="name">Name: *</label>
+            <input class="form-control" type="text" name="name" id="name" required [(ngModel)]="name">
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="city">City: *</label>
+            <input type="text" class="form-control" name="city" id="city" required [(ngModel)]="city" />
+            <!-- <select class="form-select" name="city" id="city" required>
+                {{#each cities}}
+                <option>{{this.name}}</option>
+                {{/each}}
+            </select> -->
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="comments">Comments: </label>
+            <textarea class="form-control" name="comments" id="comments" [(ngModel)]="comments"></textarea>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="contactEmail">Contact Email: </label>
+            <input class="form-control" type="email" name="contactEmail" id="contactEmail" [(ngModel)]="contactEmail">
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="employees">Number of Employees: </label>
+            <input class="form-control" type="number" name="employees" id="employees" min="1" [(ngModel)]="employees">
+        </fieldset>
+        <button class="btn btn-secondary offset-11 mt-2" (click)="addEmployer()">Save</button>
+    </section>
+    <!-- <a class="btn btn-secondary offset-10 mt-2" href="/employers/create">Add a New Employer</a> -->
+</div>

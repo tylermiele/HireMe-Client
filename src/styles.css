@@ -1,1 +1,93 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  a {
+    color: #DB0007;
+  }
+  
+  main {
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .navbar-dark {
+    background-color: #DB0007;
+    padding-left: 20px;
+  }
+  
+  
+  h1 {
+    color: #063672;
+  }
+  
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link {
+    color: #fafafa;
+  }
+  
+  fieldset {
+    border: none;
+    margin: 5px;
+  }
+  
+  label {
+    width: 100px;
+  }
+  
+  table {
+    outline: 0.2rem solid #222;
+    border-radius: 5px;
+  }
+  
+  thead {
+    color: #fafafa;
+    background-color: #063672;
+  }
+  
+  .action-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  td i {
+    font-size: 1.3rem;
+  }
+  
+  .fa-circle-xmark {
+    color: #DB0007;
+  }
+  
+  .fa-circle-info {
+    color: #0a520a;
+  }
+  
+  .container {
+    padding: 1rem;
+  }
+  
+  .formBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  
+  .form-container {
+    width: 70%;
+    margin: 0 auto;
+  }
+  
+  #showHide {
+    cursor: pointer;
+  }
+  .showHide-container{
+    justify-content: space-between;
+  }
+  

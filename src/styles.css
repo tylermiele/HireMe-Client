@@ -49,6 +49,9 @@ body {
     color: #fafafa;
     background-color: #063672;
   }
+  th{
+    padding: 0.5rem 1rem;
+  }
   
   .action-btns {
     display: flex;
@@ -91,3 +94,14 @@ body {
     justify-content: space-between;
   }
   
+  .employer-table td:nth-child(1){
+    cursor: pointer;
+    color: #DB0007 !important;
+  }
+
+  .employer-form .flex{
+    justify-content: space-between;
+  }
+  .employer-form label{
+    width: 100%;
+  }

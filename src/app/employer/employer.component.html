@@ -1,7 +1,7 @@
 <div class="container">
     <section>
         <h1>Employer List</h1>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover employer-table">
             <thead>
                 <th>Name</th>
                 <th>City</th>
@@ -11,7 +11,9 @@
             </thead>
             <tbody>
                 <tr *ngFor="let employer of employers">
-                    <td>{{employer.name}}</td>
+                    <td
+                        (click)="selectEmployer(employer._id,employer.name,employer.city,employer.contactEmail,employer.comments,employer.employees)">
+                        {{employer.name}}</td>
                     <td>{{employer.city}}</td>
                     <td>
                         <a href="mailto:{{employer.contactEmail}}">{{employer.contactEmail}}</a>
@@ -29,8 +31,11 @@
             </tbody>
         </table>
     </section>
-    <section>
-        <h2>Add / Edit Employer</h2>
+    <section class="employer-form">
+        <div class="flex">
+            <h2>Add / Edit Employer</h2>
+            <button class="btn btn-danger" (click)="deleteEmployer(_id)" *ngIf="_id">Delete</button>
+        </div>
         <fieldset>
             <label class="form-label" for="name">Name: *</label>
             <input class="form-control" type="text" name="name" id="name" required [(ngModel)]="name">
@@ -56,7 +61,11 @@
             <label class="form-label" for="employees">Number of Employees: </label>
             <input class="form-control" type="number" name="employees" id="employees" min="1" [(ngModel)]="employees">
         </fieldset>
-        <button class="btn btn-secondary offset-11 mt-2" (click)="addEmployer()">Save</button>
+        <div class="mt-2 flex">
+            <button class="btn btn-secondary" (click)="reset()">Reset</button>
+            <button class="btn btn-secondary" *ngIf="!_id"(click)="addEmployer()">Save</button>
+            <button class="btn btn-secondary" *ngIf="_id" (click)="updateEmployer(_id)">Save</button>
+        </div>
     </section>
     <!-- <a class="btn btn-secondary offset-10 mt-2" href="/employers/create">Add a New Employer</a> -->
 </div>

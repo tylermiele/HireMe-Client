@@ -10,10 +10,20 @@ import { environment } from 'src/environments/environment';
 export class EmployerService {
   serverUrl: string = environment.serverUrl;
   constructor(private http: HttpClient) { }
+
   getEmployers() {
     return this.http.get(`${this.serverUrl}/api/employers`);
   }
-  addEmployer(employer: any){
+
+  addEmployer(employer: any) {
     return this.http.post(`${this.serverUrl}/api/employers`, employer);
+  }
+
+  deleteEmployer(_id: string) {
+    return this.http.delete(`${this.serverUrl}/api/employers/${_id}`);
+  }
+  updateEmployer(_id: string, employer: any){
+    return this.http.put(`${this.serverUrl}/api/employers/${_id}`, employer);
+
   }
 }
